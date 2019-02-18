@@ -1,0 +1,67 @@
+@mixin vertical-line($height: 30em) {
+    -webkit-writing-mode: vertical-rl;
+    -ms-writing-mode: tb-rl;
+    writing-mode: vertical-rl;
+    overflow-x: auto;
+    overflow-y: auto;
+    padding: 0.5em;
+    width: 100%;
+    font-family: serif;
+    column-span: all;
+    column-gap: 1em;
+    column-width: $height;
+    p {
+        word-break: break-all;
+        height: $height;
+    }
+}
+
+.content {
+    display: none;
+    width: 100%;
+    height: 100%;
+
+    padding: 0.5em;
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    .header {
+        flex: 0 0 3em;
+    }
+
+    .body {
+        display: flex;
+        flex-direction: row;
+        flex: 1 1 auto;
+
+        .novel-text {
+            flex: 1 1 50%;
+            box-sizing: border-box;
+            font-family: serif;
+            font-size: 1em;
+            border: 1px solid #aaa;
+            overflow-y: auto;
+            resize: none;
+        }
+
+        .novel-html {
+            flex: 1 1 50%;
+            box-sizing: border-box;
+            overflow-y: auto;
+            @include vertical-line(25em);
+        }
+    }
+
+}
+
+
+.novel-origin {
+    flex: 1 1 50%;
+    height: 100%;
+}
+

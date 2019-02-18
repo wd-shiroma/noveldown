@@ -1,0 +1,19 @@
+.dark {
+    background-color: #111;
+    color: #eee;
+
+    .menu {
+        background-color: #111;
+        &.active .menu-head {
+            background-color: #333;
+        }
+        .menu-head:hover, label:hover {
+            background-color: #555;
+        }
+    }
+
+    .novel-text {
+        background-color: #111;
+        color: #eee;
+    }
+}
