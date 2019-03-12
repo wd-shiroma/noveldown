@@ -8,10 +8,6 @@ addColor = (color) ->
     .addClass('content')
     .addClass(color)
 
-$('.novel-text').on 'keyup', ->
-  html = marked this.value
-  $('.novel-html').html html
-
 $('.menu').on 'click', ->
   $(this).toggleClass 'active'
 
@@ -26,6 +22,12 @@ $('[name=color]').on 'click', ->
   addColor color
   storage.setItem('color', color)
 
+$('.novel-text').on 'keyup', ->
+  html = marked this.value
+  $('.novel-html').html html
+  storage.setItem('text', this.value)
+
 color = storage.getItem('color') || 'white'
 addColor color
 $("\#col-#{color}").attr('checked', 'checked')
+$('.novel-text').val(storage.getItem('text'))
