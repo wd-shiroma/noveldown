@@ -59,9 +59,33 @@
 
 }
 
-
 .novel-origin {
     flex: 1 1 50%;
     height: 100%;
 }
 
+.novel-html {
+    counter-reset: h1 h2 h3 h4 0;
+
+    h1:before {
+        content: open-quote;
+    }
+    h1:after {
+        content: close-quote;
+    }
+
+    h2:before {
+        counter-increment: h2;
+        content: "第" counter(h2, cjk-ideographic) "部　"
+    }
+
+    h3:before {
+        counter-increment: h3;
+        content: "第" counter(h3, cjk-ideographic) "章　"
+    }
+
+    h4:before {
+        counter-increment: h4;
+        content: "第" counter(h4, cjk-ideographic) "節　"
+    }
+}
